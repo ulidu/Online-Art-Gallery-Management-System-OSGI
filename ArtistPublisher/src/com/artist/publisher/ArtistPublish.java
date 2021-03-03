@@ -2,6 +2,8 @@ package com.artist.publisher;
 
 public interface ArtistPublish {
 	
-	public String publishArtist();
+	public void add();
+	
+	public void get();
 
 }

@@ -3,8 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: PaintingPublisher
 Bundle-SymbolicName: PaintingPublisher
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: paintingpublisher.Activator
+Bundle-Activator: com.painting.publisher.PaintingActivator
 Bundle-RequiredExecutionEnvironment: JavaSE-15
 Automatic-Module-Name: PaintingPublisher
-Import-Package: org.osgi.framework;version="1.3.0"
+Import-Package: com.artist.publisher,
+ com.customer.consumer,
+ org.osgi.framework;version="1.3.0"
 Bundle-ActivationPolicy: lazy
