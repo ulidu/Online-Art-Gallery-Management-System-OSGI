@@ -3,8 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ArtistPublisher
 Bundle-SymbolicName: ArtistPublisher
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: artistpublisher.Activator
-Bundle-RequiredExecutionEnvironment: JavaSE-15
-Automatic-Module-Name: ArtistPublisher
+Bundle-Activator: com.artist.publisher.ArtistActivator
+Export-Package: com.artist.publisher
 Import-Package: org.osgi.framework;version="1.3.0"
-Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-15
+
