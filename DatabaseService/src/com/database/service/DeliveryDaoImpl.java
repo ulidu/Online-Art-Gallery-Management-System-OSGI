@@ -1,21 +1,21 @@
-package databaseservice;
+package com.database.service;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class CustomerDaoImpl implements CustomerDao{
-
+public class DeliveryDaoImpl implements DeliveryDao{
+	
 	private static Map<String, Map<String, String>> dataList = new HashMap<>();
 
 	@Override
 	public boolean save(Map<String, String> data) {
 		
-		String customerID = data.get("customerID");
+		String deliveryID = data.get("deliveryId");
 		
 		try {
 			
-			dataList.put(customerID, new HashMap<String, String>(data));
+			dataList.put(deliveryID, new HashMap<String, String>(data));
 			return true;
 			
 		} catch (Exception e) {
@@ -29,13 +29,13 @@ public class CustomerDaoImpl implements CustomerDao{
 	}
 
 	@Override
-	public Map<String, String> findById(String customerID) {
+	public Map<String, String> findById(String deliveryID) {
 		
 		Map<String, String> data = new HashMap<>();
 		
 		try {
 			
-			data = dataList.get(customerID);
+			data = dataList.get(deliveryID);
 			if(Objects.isNull(data)){
 				
 				return null;
@@ -51,5 +51,5 @@ public class CustomerDaoImpl implements CustomerDao{
 		return data;
 		
 	}
-	
+
 }

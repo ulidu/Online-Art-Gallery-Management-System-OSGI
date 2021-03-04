@@ -4,6 +4,8 @@ import com.artist.publisher.ArtistPublish;
 import com.artist.publisher.ArtistPublishImpl;
 import com.customer.consumer.CustomerConsume;
 import com.customer.consumer.CustomerConsumeImpl;
+import com.delivery.publisher.DeliveryPublish;
+import com.delivery.publisher.DeliveryPublishImpl;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

@@ -1,12 +1,12 @@
 package com.artist.publisher;
 
-import databaseservice.ArtistDao;
-import databaseservice.ArtistDaoImpl;
-
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
+
+import com.database.service.ArtistDao;
+import com.database.service.ArtistDaoImpl;
 
 public class ArtistActivator implements BundleActivator {
 	

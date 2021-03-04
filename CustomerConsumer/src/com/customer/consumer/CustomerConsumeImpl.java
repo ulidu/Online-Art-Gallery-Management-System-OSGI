@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Scanner;
 
-import databaseservice.CustomerDao;
+import com.database.service.CustomerDao;
 
 public class CustomerConsumeImpl implements CustomerConsume{
 	

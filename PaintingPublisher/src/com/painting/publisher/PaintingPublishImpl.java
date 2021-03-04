@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.artist.publisher.ArtistPublish;
 import com.customer.consumer.CustomerConsume;
+import com.delivery.publisher.DeliveryPublish;
 
 public class PaintingPublishImpl implements PaintingPublish{
 	
@@ -132,10 +133,10 @@ public class PaintingPublishImpl implements PaintingPublish{
 
 		switch (input) {
 		case 1:
-			deliveryConsume.add();
+			deliveryPublish.add();
 			break;
 		case 2:
-			deliveryConsume.get();
+			deliveryPublish.get();
 			break;
 		default:
 			System.out.println("Invalid input!!!");
@@ -176,10 +177,8 @@ public class PaintingPublishImpl implements PaintingPublish{
 			}
 			System.out.print("Please enter a number : ");
 			input = in.nextInt();
+		}
 		
 	}
-	
-}
-
 
 }

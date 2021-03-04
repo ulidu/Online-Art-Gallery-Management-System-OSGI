@@ -1,4 +1,4 @@
-package databaseservice;
+package com.database.service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ public class ArtistDaoImpl implements ArtistDao{
 	@Override
 	public boolean save(Map<String, String> data) {
 		
-		String artistID = data.get("artistID");
+		String artistID = data.get("artistId");
 		
 		try {
 			

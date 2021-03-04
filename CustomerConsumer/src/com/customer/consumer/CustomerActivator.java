@@ -1,12 +1,12 @@
 package com.customer.consumer;
 
-import databaseservice.CustomerDao;
-import databaseservice.CustomerDaoImpl;
-
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
+
+import com.database.service.CustomerDao;
+import com.database.service.CustomerDaoImpl;
 
 public class CustomerActivator implements BundleActivator {
 

@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Scanner;
 
-import databaseservice.ArtistDao;
+import com.database.service.ArtistDao;
 
 public class ArtistPublishImpl implements ArtistPublish{
 

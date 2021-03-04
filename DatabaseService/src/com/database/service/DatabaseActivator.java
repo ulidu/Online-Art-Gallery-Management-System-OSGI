@@ -1,4 +1,4 @@
-package databaseservice;
+package com.database.service;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -14,9 +14,13 @@ public class DatabaseActivator implements BundleActivator {
 		
 		ArtistDao artistDao = new ArtistDaoImpl();
 		CustomerDao customerDao = new CustomerDaoImpl();
+		DeliveryDao deliveryDao = new DeliveryDaoImpl();
+		PaintingDao paintingDao = new PaintingDaoImpl();
 		
 		publishServiceRegistration = context.registerService(ArtistDao.class.getName(), artistDao, null);
 		publishServiceRegistration = context.registerService(CustomerDao.class.getName(), customerDao, null);
+		publishServiceRegistration = context.registerService(DeliveryDao.class.getName(), deliveryDao, null);
+		publishServiceRegistration = context.registerService(PaintingDao.class.getName(), paintingDao, null);
 		
 	}
 
