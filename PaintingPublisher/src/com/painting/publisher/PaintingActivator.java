@@ -1,11 +1,7 @@
 package com.painting.publisher;
 
-import com.artist.publisher.ArtistPublish;
-import com.artist.publisher.ArtistPublishImpl;
-import com.customer.consumer.CustomerConsume;
-import com.customer.consumer.CustomerConsumeImpl;
-import com.delivery.publisher.DeliveryPublish;
-import com.delivery.publisher.DeliveryPublishImpl;
+import com.database.service.PaintingDao;
+import com.database.service.PaintingDaoImpl;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -14,35 +10,27 @@ import org.osgi.framework.ServiceRegistration;
 
 public class PaintingActivator implements BundleActivator {
 	
-	ServiceReference<?> artistServiceReference;
-	ServiceReference<?> deliveryServiceReference;
-	ServiceReference<?> customerServiceReference;
+	ServiceReference<?> serviceReference;
+	
+	ServiceRegistration<?> publishPaintingRegistration; 
 
 	public void start(BundleContext context) throws Exception {
 			
-			System.out.println("Painting Service Starts!");
+			System.out.println("Painting Service Started !");
 			
-			artistServiceReference = context.getServiceReference(ArtistPublish.class.getName());
-			ArtistPublish artistPublish = (ArtistPublishImpl) context.getService(artistServiceReference);
+			serviceReference = context.getServiceReference(PaintingDao.class.getName());
+			PaintingDao paintingDao = (PaintingDaoImpl) context.getService(serviceReference);
 			
-			deliveryServiceReference = context.getServiceReference(DeliveryPublish.class.getName());
-			DeliveryPublish deliveryPublish = (DeliveryPublishImpl) context.getService(deliveryServiceReference);
-			
-			customerServiceReference = context.getServiceReference(CustomerConsume.class.getName());
-			CustomerConsume customerConsume = (CustomerConsumeImpl) context.getService(customerServiceReference);
-			
-			PaintingPublish publishPainting = new PaintingPublishImpl(artistPublish, deliveryPublish, customerConsume);
-			publishPainting.init();
-				
+			PaintingPublish publishPainting1 = new PaintingPublishImpl(paintingDao);
+			publishPaintingRegistration = context.registerService(PaintingPublish.class.getName(), publishPainting1, null);
+		
 	}
 
 	public void stop(BundleContext context) throws Exception {
 			
-			System.out.println("Painting Service Stops !");
+			System.out.println("Painting Service Stopped !");
 			
-			context.ungetService(artistServiceReference);
-			context.ungetService(deliveryServiceReference);
-			context.ungetService(customerServiceReference);
+			publishPaintingRegistration.unregister();
 			
 	}
 

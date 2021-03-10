@@ -2,12 +2,8 @@ package com.painting.publisher;
 
 public interface PaintingPublish {
 	
-	public void init();
+	public void add();
 	
-	public void artist();
-		
-	public void delivery();
-		
-	public void customer();
-
+	public void get();
+	
 }

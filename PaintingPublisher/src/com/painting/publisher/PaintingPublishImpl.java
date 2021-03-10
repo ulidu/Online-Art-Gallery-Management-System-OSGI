@@ -1,184 +1,59 @@
 package com.painting.publisher;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
-import com.artist.publisher.ArtistPublish;
-import com.customer.consumer.CustomerConsume;
-import com.delivery.publisher.DeliveryPublish;
+import com.database.service.PaintingDao;
 
 public class PaintingPublishImpl implements PaintingPublish{
 	
-	ArtistPublish artistPublish;
-	DeliveryPublish deliveryPublish; 
-	CustomerConsume customerConsume;
+	PaintingDao paintingDao = null;
+	HashMap<String, String> paintingModel = new HashMap<>();
+
+	public PaintingPublishImpl(PaintingDao paintingDao) {
+		
+		this.paintingDao = paintingDao;
 	 
-	
-	public PaintingPublishImpl(ArtistPublish artistPublish , DeliveryPublish deliveryPublish, CustomerConsume customerConsume) {
-		
-		this.artistPublish = artistPublish;
-		this.deliveryPublish = deliveryPublish; 
-		this.customerConsume = customerConsume;
-		
-		
-	}
-
-	@Override
-	public void init() {
-		Scanner in = new Scanner(System.in);
-		System.out.println("***Painting Management Services***");
-		welcomePrompt();
-		int input = in.nextInt();
-		while (input != 4) {
-
-			switch (input) {
-			case 1:
-				artist();
-				break;
-			case 2:
-				delivery();
-				break;
-			case 3:
-				customer();
-				break;
-			default:
-				System.out.println("Invalid input!!!");
-				break;
-			}
-			welcomePrompt();
-			input = in.nextInt();
-		}
-
-	}
-
-	private void welcomePrompt() {
-		System.out.println("");
-		System.out.println("What do you need to do?");
-		System.out.println("  1 - Artist Management");
-		System.out.println("  2 - Delivery Management");
-		System.out.println("  3 - Customer Management");
-		System.out.println("  4 - Exit");
-		System.out.println("");
-		System.out.print("Please enter a number : ");
 	}
 		
-	
-/*
 	@Override
 	public void add() {
-		//artistPublish.add();
-		
-	}
-
-	@Override
-	public void view() {
-		//artistPublish.view();
-		
-	}
-
-	@Override
-	public void remove() {
-		//artistPublish.remove();
-		
-	}
-*/
-	@Override
-	public void artist() {
-		Scanner in = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter painting id         : ");
+		paintingModel.put("paintingId", scanner.nextLine());
+		System.out.print("Enter painting name       : ");
+		paintingModel.put("paintingName", scanner.nextLine());
+		System.out.print("Enter painting category   : ");
+		paintingModel.put("paintingCategory", scanner.nextLine());
+		System.out.print("Enter painting price : ");
+		paintingModel.put("paintingPrice", Double.toString(scanner.nextDouble()));
 		System.out.println("");
-		System.out.println("Artist Management");
-		System.out.println("How would you like to proceed?");
-		System.out.println("  1 - Add new artist");
-		System.out.println("  2 - Display artist");
-		System.out.println("  3 - Back");
-		System.out.println("");
-
-		System.out.print("Please enter a number : ");
-		int input = in.nextInt();
-
-		while (input != 3) {
-
-			switch (input) {
-			case 1:
-				artistPublish.add();
-				break;
-			case 2:
-				artistPublish.get();
-				break;
-			default:
-				System.out.println("Invalid input!!!");
-				break;
-			}
-			System.out.print("Please enter a number : ");
-			input = in.nextInt();
+		if (paintingDao.save(paintingModel)) {
+			System.out.println("Painting added successfully !!! ");
+		} else {
+			System.out.println("Sorry something went wrong !!! ");			
 		}
+		
 	}
-
 	
 	@Override
-	public void delivery() {
-		
-	Scanner in = new Scanner(System.in);
-	System.out.println("");
-	System.out.println("Delivery Management");
-	System.out.println("How would you like to proceed?");
-	System.out.println("  1 - Add new delivery");
-	System.out.println("  2 - View delivery details");
-	System.out.println("  3 - Back");
-	System.out.println("");
+	public void get() {
+		System.out.print("Enter painting id: ");
+		Scanner scanner = new Scanner(System.in);
 
-	System.out.print("Please enter a number : ");
-	int input = in.nextInt();
+		String id = scanner.nextLine();
+		Map<String, String> data = paintingDao.findById(id);
 
-	while (input != 3) {
-
-		switch (input) {
-		case 1:
-			deliveryPublish.add();
-			break;
-		case 2:
-			deliveryPublish.get();
-			break;
-		default:
-			System.out.println("Invalid input!!!");
-			break;
+		if (Objects.nonNull(data)) {
+			data.forEach((key, value) -> System.out.println(key + ":" + value));
+			System.out.println("");
+		} else {
+			System.out.println("Painting id:" + id + " not found !!!");
+			System.out.println("");
 		}
-		System.out.print("Please enter a number : ");
-		input = in.nextInt();
+		
+	}
 	
-		}
-	}
-
-	@Override
-	public void customer() {
-		Scanner in = new Scanner(System.in);
-		System.out.println("");
-		System.out.println("Customer Management");
-		System.out.println("How would you like to proceed?");
-		System.out.println("  1 - Add new customer");
-		System.out.println("  2 - View customer details");
-		System.out.println("  3 - Back");
-		System.out.println("");
-
-		System.out.print("Please enter a number : ");
-		int input = in.nextInt();
-
-		while (input != 3) {
-
-			switch (input) {
-			case 1:
-				customerConsume.add();
-				break;
-			case 2:
-				customerConsume.get();
-				break;
-			default:
-				System.out.println("Invalid input!!!");
-				break;
-			}
-			System.out.print("Please enter a number : ");
-			input = in.nextInt();
-		}
-		
-	}
-
 }

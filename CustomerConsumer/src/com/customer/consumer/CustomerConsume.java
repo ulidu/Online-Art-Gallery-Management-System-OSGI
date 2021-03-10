@@ -2,8 +2,14 @@ package com.customer.consumer;
 
 public interface CustomerConsume {
 
-	public void add();
+	public void init();
 	
-	public void get();
+	public void artist();
+	
+	public void delivery();
+	
+	public void painting();
+	
+	public void customer();
 	
 }
