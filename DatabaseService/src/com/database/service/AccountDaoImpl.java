@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class CustomerDaoImpl implements CustomerDao{
+public class AccountDaoImpl implements AccountDao{
 
 	private static Map<String, Map<String, String>> dataList = new HashMap<>();
 

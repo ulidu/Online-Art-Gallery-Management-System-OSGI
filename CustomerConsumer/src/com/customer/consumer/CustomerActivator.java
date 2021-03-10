@@ -9,8 +9,6 @@ import com.account.publisher.AccountPublish;
 import com.account.publisher.AccountPublishImpl;
 import com.artist.publisher.ArtistPublish;
 import com.artist.publisher.ArtistPublishImpl;
-import com.database.service.CustomerDao;
-import com.database.service.CustomerDaoImpl;
 import com.delivery.publisher.DeliveryPublish;
 import com.delivery.publisher.DeliveryPublishImpl;
 import com.painting.publisher.PaintingPublish;
@@ -30,13 +28,7 @@ public class CustomerActivator implements BundleActivator {
 	public void start(BundleContext context) throws Exception {
 		
 		System.out.println("Customer Subscriber Started !");
-		
-		serviceReference = context.getServiceReference(CustomerDao.class.getName());
-		CustomerDao customerDao = (CustomerDaoImpl) context.getService(serviceReference);
 			
-		CustomerConsume publisherService = new CustomerConsumeImpl(customerDao);
-		publishCustomerRegistration = context.registerService(CustomerConsume.class.getName(), publisherService, null);
-		
 		artistServiceReference = context.getServiceReference(ArtistPublish.class.getName());
 		ArtistPublish artistPublish = (ArtistPublishImpl) context.getService(artistServiceReference);
 		
@@ -51,7 +43,6 @@ public class CustomerActivator implements BundleActivator {
 		
 		CustomerConsume customerConsume = new CustomerConsumeImpl(artistPublish, deliveryPublish, paintingPublish, accountPublish);
 		customerConsume.init();
-		stop(context);
 		
 	} 
 

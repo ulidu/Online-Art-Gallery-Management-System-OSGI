@@ -13,12 +13,12 @@ public class DatabaseActivator implements BundleActivator {
 		System.out.println("Database Service Started !");
 		
 		ArtistDao artistDao = new ArtistDaoImpl();
-		CustomerDao customerDao = new CustomerDaoImpl();
+		AccountDao customerDao = new AccountDaoImpl();
 		DeliveryDao deliveryDao = new DeliveryDaoImpl();
 		PaintingDao paintingDao = new PaintingDaoImpl();
 		
 		publishServiceRegistration = context.registerService(ArtistDao.class.getName(), artistDao, null);
-		publishServiceRegistration = context.registerService(CustomerDao.class.getName(), customerDao, null);
+		publishServiceRegistration = context.registerService(AccountDao.class.getName(), customerDao, null);
 		publishServiceRegistration = context.registerService(DeliveryDao.class.getName(), deliveryDao, null);
 		publishServiceRegistration = context.registerService(PaintingDao.class.getName(), paintingDao, null);
 		

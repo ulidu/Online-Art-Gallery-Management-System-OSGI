@@ -5,22 +5,23 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Scanner;
 
-import com.database.service.CustomerDao;
+import com.database.service.AccountDao;
 
 public class AccountPublishImpl implements AccountPublish{
 
-	CustomerDao customerDao = null;
+	AccountDao accountDao = null;
 	HashMap<String, String> customerModel = new HashMap<>();
 
-	public AccountPublishImpl(CustomerDao customerDao) {
+	public AccountPublishImpl(AccountDao accountDao) {
 		
-		this.customerDao = customerDao;
+		this.accountDao = accountDao;
 		
 	}
 
 	@Override
 	public void add() {
 		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.print("Enter customer ID			: ");
@@ -37,7 +38,7 @@ public class AccountPublishImpl implements AccountPublish{
 		
 		System.out.print(" ");
 		
-		if (customerDao.save(customerModel)) {
+		if (accountDao.save(customerModel)) {
 			
 			System.out.println("Customer created successfully ! ");
 			
@@ -53,10 +54,12 @@ public class AccountPublishImpl implements AccountPublish{
 	public void get() {
 		
 		System.out.print("Enter customer ID: ");
+		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
 		String id = scanner.nextLine();
-		Map<String, String> data = customerDao.findById(id);
+		Map<String, String> data = accountDao.findById(id);
 
 		if (Objects.nonNull(data)) {
 			

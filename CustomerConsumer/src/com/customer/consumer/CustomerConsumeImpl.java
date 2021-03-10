@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import com.account.publisher.AccountPublish;
 import com.artist.publisher.ArtistPublish;
-import com.database.service.CustomerDao;
+import com.database.service.AccountDao;
 import com.delivery.publisher.DeliveryPublish;
 import com.painting.publisher.PaintingPublish;
 
@@ -17,15 +17,6 @@ public class CustomerConsumeImpl implements CustomerConsume{
 	DeliveryPublish deliveryPublish; 
 	PaintingPublish paintingPublish;
 	AccountPublish accountPublish;
-	
-	CustomerDao customerDao = null;
-	HashMap<String, String> customerModel = new HashMap<>();
-	
-	public CustomerConsumeImpl(CustomerDao customerDao) {
-		
-		this.customerDao = customerDao;
-		
-	}
 	
 	public CustomerConsumeImpl(ArtistPublish artistPublish , DeliveryPublish deliveryPublish, PaintingPublish paintingPublish, AccountPublish accountPublish) {
 		

@@ -4,7 +4,7 @@ Bundle-Name: CustomerConsumer
 Bundle-SymbolicName: CustomerConsumer
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.customer.consumer.CustomerActivator
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-15
 Automatic-Module-Name: CustomerConsumer
 Import-Package: com.account.publisher,
  com.artist.publisher,

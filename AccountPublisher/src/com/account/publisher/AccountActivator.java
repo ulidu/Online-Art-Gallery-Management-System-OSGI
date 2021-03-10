@@ -5,23 +5,23 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
-import com.database.service.CustomerDao;
-import com.database.service.CustomerDaoImpl;
+import com.database.service.AccountDao;
+import com.database.service.AccountDaoImpl;
 
 public class AccountActivator implements BundleActivator {
 	
-	ServiceRegistration<?> publishCustomerRegistration;
+	ServiceRegistration<?> publishAccountRegistration;
 	ServiceReference<?> serviceReference;
 
 	public void start(BundleContext context) throws Exception {
 		
-		serviceReference = context.getServiceReference(CustomerDao.class.getName());
-		CustomerDao customerDao = (CustomerDaoImpl) context.getService(serviceReference);
+		serviceReference = context.getServiceReference(AccountDao.class.getName());
+		AccountDao accountDao = (AccountDaoImpl) context.getService(serviceReference);
 		
 		System.out.println("Account Publisher Started !");
 		
-		AccountPublish publisherService = new AccountPublishImpl(customerDao);
-		publishCustomerRegistration = context.registerService(AccountPublish.class.getName(), publisherService, null);
+		AccountPublish publisherService = new AccountPublishImpl(accountDao);
+		publishAccountRegistration = context.registerService(AccountPublish.class.getName(), publisherService, null);
 		
 	}
 
@@ -29,7 +29,7 @@ public class AccountActivator implements BundleActivator {
 		
 		System.out.println("Account Publisher Stopped !");
 		
-		publishCustomerRegistration.unregister();
+		publishAccountRegistration.unregister();
 		context.ungetService(serviceReference);
 		
 	}
