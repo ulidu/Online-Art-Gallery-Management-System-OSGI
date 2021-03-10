@@ -43,6 +43,7 @@ public class CustomerActivator implements BundleActivator {
 		
 		CustomerConsume customerConsume = new CustomerConsumeImpl(artistPublish, deliveryPublish, paintingPublish, accountPublish);
 		customerConsume.init();
+		stop(context);
 		
 	} 
 
@@ -50,7 +51,7 @@ public class CustomerActivator implements BundleActivator {
 		
 		System.out.println("Customer Subscriber Stopped !");
 		
-		publishCustomerRegistration.unregister();
+		//publishCustomerRegistration.unregister();
 		
 		context.ungetService(serviceReference);
 	

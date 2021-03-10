@@ -1,13 +1,10 @@
 package com.customer.consumer;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+
 import java.util.Scanner;
 
 import com.account.publisher.AccountPublish;
 import com.artist.publisher.ArtistPublish;
-import com.database.service.AccountDao;
 import com.delivery.publisher.DeliveryPublish;
 import com.painting.publisher.PaintingPublish;
 
