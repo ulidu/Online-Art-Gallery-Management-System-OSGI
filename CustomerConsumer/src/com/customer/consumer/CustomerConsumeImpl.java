@@ -160,7 +160,7 @@ public class CustomerConsumeImpl implements CustomerConsume{
 		System.out.println("");
 		System.out.println("Delivery Management");
 		System.out.println("How would you like to proceed ?");
-		System.out.println("  1 - Add new delivery");
+		System.out.println("  1 - Assign a new delivery");
 		System.out.println("  2 - View delivery details");
 		System.out.println("  3 - Back");
 		System.out.println("");
@@ -176,6 +176,7 @@ public class CustomerConsumeImpl implements CustomerConsume{
 				break;
 			case 2:
 				deliveryPublish.get();
+				break;
 			default:
 				System.out.println("Invalid input !");
 				break;
