@@ -5,8 +5,6 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
-import com.delivery.publisher.DeliveryPublish;
-import com.delivery.publisher.DeliveryPublishImpl;
 import com.database.service.DeliveryDao;
 import com.database.service.DeliveryDaoImpl;
 

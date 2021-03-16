@@ -21,18 +21,19 @@ public class ArtistPublishImpl implements ArtistPublish{
 	@Override
 	public void add() {
 		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.print("Enter artist ID			: ");
+		System.out.print("Enter artist ID : ");
 		artistModel.put("artistId", scanner.nextLine());
 		
-		System.out.print("Enter artist name			: ");
+		System.out.print("Enter artist name : ");
 		artistModel.put("artistName", scanner.nextLine());
 		
-		System.out.print("Enter artist's age		 	: ");
-		artistModel.put("artistAge", Integer.toString(scanner.nextInt()));
+		System.out.print("Enter artist's age	 : ");
+		artistModel.put("artistAge", scanner.nextLine());
 		
-		System.out.print("Enter artist's address		: ");
+		System.out.print("Enter artist's address	 : ");
 		artistModel.put("artistAddress", scanner.nextLine());
 		
 		System.out.print(" ");
@@ -53,6 +54,8 @@ public class ArtistPublishImpl implements ArtistPublish{
 	public void get() {
 		
 		System.out.print("Enter artist ID: ");
+		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
 		String id = scanner.nextLine();

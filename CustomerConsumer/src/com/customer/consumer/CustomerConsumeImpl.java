@@ -26,10 +26,15 @@ public class CustomerConsumeImpl implements CustomerConsume{
 
 	@Override
 	public void init() {
+		
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
+		
 		System.out.println("");
 		System.out.println("*** Online Art Gallery System ***");
+		
 		welcomePrompt();
+		
 		int input = in.nextInt();
 		while (input != 5) {
 
@@ -57,6 +62,7 @@ public class CustomerConsumeImpl implements CustomerConsume{
 	}
 
 	private void welcomePrompt() {
+		
 		System.out.println("");
 		System.out.println("What do you need to do ?");
 		System.out.println("  1 - Customer Management");
@@ -66,11 +72,15 @@ public class CustomerConsumeImpl implements CustomerConsume{
 		System.out.println("  5 - Exit");
 		System.out.println("");
 		System.out.print("Please enter a number : ");
+		
 	}
 	
 	@Override
 	public void artist() {
+		
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
+		
 		System.out.println("");
 		System.out.println("Artist Management");
 		System.out.println("How would you like to proceed ?");
@@ -95,14 +105,20 @@ public class CustomerConsumeImpl implements CustomerConsume{
 				System.out.println("Invalid input !");
 				break;
 			}
+			
 			System.out.print("Please enter a number : ");
 			input = in.nextInt();
+			
 		}
+		
 	}
 
 	@Override
 	public void customer() {
+		
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
+		
 		System.out.println("");
 		System.out.println("Customer Management");
 		System.out.println("How would you like to proceed ?");
@@ -127,47 +143,57 @@ public class CustomerConsumeImpl implements CustomerConsume{
 				System.out.println("Invalid input !");
 				break;
 			}
+			
 			System.out.print("Please enter a number : ");
 			input = in.nextInt();
+			
 		}
+		
 	}
 	
 	@Override
 	public void delivery() {
 		
-	Scanner in = new Scanner(System.in);
-	System.out.println("");
-	System.out.println("Delivery Management");
-	System.out.println("How would you like to proceed ?");
-	System.out.println("  1 - Add new delivery");
-	System.out.println("  2 - View delivery details");
-	System.out.println("  3 - Back");
-	System.out.println("");
-
-	System.out.print("Please enter a number : ");
-	int input = in.nextInt();
-
-	while (input != 3) {
-
-		switch (input) {
-		case 1:
-			deliveryPublish.add();
-			break;
-		case 2:
-			deliveryPublish.get();
-		default:
-			System.out.println("Invalid input !");
-			break;
-		}
-		System.out.print("Please enter a number : ");
-		input = in.nextInt();
+		@SuppressWarnings("resource")
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("");
+		System.out.println("Delivery Management");
+		System.out.println("How would you like to proceed ?");
+		System.out.println("  1 - Add new delivery");
+		System.out.println("  2 - View delivery details");
+		System.out.println("  3 - Back");
+		System.out.println("");
 	
+		System.out.print("Please enter a number : ");
+		int input = in.nextInt();
+	
+		while (input != 3) {
+	
+			switch (input) {
+			case 1:
+				deliveryPublish.add();
+				break;
+			case 2:
+				deliveryPublish.get();
+			default:
+				System.out.println("Invalid input !");
+				break;
+			}
+			
+			System.out.print("Please enter a number : ");
+			input = in.nextInt();
+			
 		}
+		
 	}
 
 	@Override
 	public void painting() {
+		
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
+		
 		System.out.println("");
 		System.out.println("Painting Management");
 		System.out.println("How would you like to proceed?");
@@ -192,8 +218,10 @@ public class CustomerConsumeImpl implements CustomerConsume{
 				System.out.println("Invalid input !");
 				break;
 			}
+			
 			System.out.print("Please enter a number : ");
 			input = in.nextInt();
+			
 		}
 		
 	}

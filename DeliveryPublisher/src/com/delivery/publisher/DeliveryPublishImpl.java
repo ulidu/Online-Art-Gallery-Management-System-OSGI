@@ -21,18 +21,19 @@ public class DeliveryPublishImpl implements DeliveryPublish{
 	@Override
 	public void add() {
 		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.print("Enter delivery ID				: ");
+		System.out.print("Enter delivery ID : ");
 		deliveryModel.put("deliveryId", scanner.nextLine());
 		
-		System.out.print("Enter delivery name			: ");
+		System.out.print("Enter delivery name : ");
 		deliveryModel.put("deliveryName", scanner.nextLine());
 		
-		System.out.print("Enter delivery phone number	: ");
+		System.out.print("Enter delivery phone number : ");
 		deliveryModel.put("deliveryPhone", scanner.nextLine());
 		
-		System.out.print("Enter delivery address			: ");
+		System.out.print("Enter delivery address	 : ");
 		deliveryModel.put("deliveryAddress", scanner.nextLine());
 		
 		System.out.print(" ");
@@ -53,6 +54,8 @@ public class DeliveryPublishImpl implements DeliveryPublish{
 	public void get() {
 		
 		System.out.print("Enter delivery ID: ");
+		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
 		String id = scanner.nextLine();

@@ -24,16 +24,16 @@ public class AccountPublishImpl implements AccountPublish{
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.print("Enter customer ID			: ");
+		System.out.print("Enter customer ID : ");
 		customerModel.put("customerId", scanner.nextLine());
 		
-		System.out.print("Enter customer name			: ");
+		System.out.print("Enter customer name : ");
 		customerModel.put("customerName", scanner.nextLine());
 		
-		System.out.print("Enter customer's age		 	: ");
-		customerModel.put("customerAge", Integer.toString(scanner.nextInt()));
+		System.out.print("Enter customer's age : ");
+		customerModel.put("customerAge", scanner.nextLine());
 		
-		System.out.print("Enter customer's address		: ");
+		System.out.print("Enter customer's address : ");
 		customerModel.put("customerAddress", scanner.nextLine());
 		
 		System.out.print(" ");
